@@ -7,13 +7,17 @@ function caesarCipher(str, shiftFac) {
         let newChar = ""
         const upperChar = char.toUpperCase()
         const letterIndex = letters.findIndex(element => element === upperChar)
-        const newIndex = (letterIndex + shiftFac) % 26
+        if (letterIndex === -1) {
+            newStr += char
+        } else {
+            const newIndex = (letterIndex + shiftFac) % 26
         if (char === char.toUpperCase()) {
             newChar = letters[newIndex]
         } else {
             newChar = letters[newIndex].toLowerCase()
         }
         newStr += newChar
+        }
     }
 
     return newStr
